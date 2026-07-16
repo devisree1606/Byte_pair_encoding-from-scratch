@@ -117,7 +117,7 @@ Decoded : learning
 
 ## Author
 
-**Devi Sree**
+**Devi Sree.T**
 
 B.Sc. Computer Science with Artificial Intelligence
 
