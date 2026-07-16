@@ -35,11 +35,17 @@ This implementation includes the complete BPE workflow:
 ## Project Structure
 
 ```
-.
-├── bpe.py
-└── README.md
+Byte-Pair-Encoding/
+│
+├── 📄 bpe.py
+│   ├── Build vocabulary
+│   ├── Learn merge rules
+│   ├── Encode words
+│   └── Decode tokens
+│
+└── 📄 README.md
+    └── Project documentation
 ```
-
 ---
 
 ## Algorithm Workflow
