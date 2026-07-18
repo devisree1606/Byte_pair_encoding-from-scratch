@@ -1,34 +1,28 @@
 # Byte Pair Encoding (BPE) Tokenizer
 
-A Python implementation of the **Byte Pair Encoding (BPE)** algorithm for learning subword vocabularies and performing tokenization. This project demonstrates how BPE iteratively merges the most frequent symbol pairs to create a compact vocabulary, a technique widely used in modern Natural Language Processing (NLP) models.
+A Python implementation of the **Byte Pair Encoding (BPE)** algorithm from scratch. This project demonstrates how BPE learns subword vocabularies by repeatedly merging the most frequent adjacent character pairs. The implementation also supports encoding new words into subword tokens and decoding them back into their original form.
 
 ---
 
 ## Overview
 
-Byte Pair Encoding (BPE) is a data compression-inspired algorithm adapted for NLP to efficiently tokenize text into subword units. Instead of treating every word as a unique token, BPE learns frequently occurring character sequences, allowing models to handle unseen or rare words more effectively.
+Byte Pair Encoding (BPE) is a popular subword tokenization algorithm used in Natural Language Processing (NLP). Instead of treating every word as a unique token, BPE learns common character sequences and creates subword units, making it effective for handling rare and unseen words.
 
-This implementation includes the complete BPE workflow:
-
-- Character-level vocabulary construction
-- Adjacent pair frequency calculation
-- Iterative pair merging
-- Merge rule generation
-- Vocabulary creation
-- Word encoding
-- Token decoding
+This project implements the complete BPE workflow without using any external NLP libraries.
 
 ---
 
 ## Features
 
-- Character-level vocabulary initialization
-- Frequency-based pair selection
-- Automatic merge rule learning
-- Configurable number of merge operations
-- Subword token generation
-- Token decoding back to original text
-- Simple and well-structured Python implementation
+- Character-level vocabulary construction
+- Word frequency calculation
+- Adjacent symbol pair frequency counting
+- Most frequent pair selection
+- Iterative pair merging
+- Merge rule generation
+- Final subword vocabulary creation
+- Word encoding into subword tokens
+- Token decoding back into original words
 
 ---
 
@@ -37,27 +31,25 @@ This implementation includes the complete BPE workflow:
 ```
 Byte-Pair-Encoding/
 │
-├── 📄 bpe.py
-│   ├── Build vocabulary
-│   ├── Learn merge rules
-│   ├── Encode words
-│   └── Decode tokens
-│
-└── 📄 README.md
-    └── Project documentation
+├── bpe_tokenizer.py
+├── README.md
 ```
+
 ---
 
 ## Algorithm Workflow
 
-1. Build an initial character-level vocabulary.
-2. Count the frequency of adjacent symbol pairs.
-3. Select the most frequent pair.
-4. Merge the selected pair across the vocabulary.
-5. Repeat for the specified number of merge iterations.
-6. Store learned merge rules.
-7. Encode unseen words using the learned vocabulary.
-8. Decode tokens back into readable text.
+1. Create a text corpus.
+2. Build a character-level vocabulary.
+3. Count adjacent symbol pair frequencies.
+4. Select the most frequent symbol pair.
+5. Merge the selected pair.
+6. Update the vocabulary.
+7. Repeat merging for a fixed number of iterations.
+8. Store merge rules.
+9. Build the final vocabulary.
+10. Encode new words.
+11. Decode tokens back to text.
 
 ---
 
@@ -69,66 +61,83 @@ Byte-Pair-Encoding/
 
 ---
 
-## Example
-
-### Input
+## Sample Corpus
 
 ```
-drive
-driver
-driving
-code
-coder
-coding
+study
+student
+students
+studying
+teach
+teacher
+teaching
+taught
 learn
 learner
 learning
+learned
 ```
 
-### Encoding
+---
+
+## Sample Encoding
+
+**Input**
 
 ```
-Original : learning
-Encoded  : ['learn', 'i', 'n', 'g', '</w>']
+learning
 ```
 
-### Decoding
+**Encoded Output**
 
 ```
-Decoded : learning
+['learn', 'i', 'n', 'g', '</w>']
+```
+
+---
+
+## Sample Decoding
+
+**Input**
+
+```
+['learn', 'i', 'n', 'g', '</w>']
+```
+
+**Output**
+
+```
+learning
 ```
 
 ---
 
 ## Applications
 
-- Natural Language Processing
+- Natural Language Processing (NLP)
 - Large Language Models (LLMs)
 - Machine Translation
 - Text Tokenization
-- Vocabulary Learning
-- Language Modeling
+- Chatbots
+- Search Engines
+- Speech Recognition
 
 ---
 
-## Future Improvements
+## Future Enhancements
 
-- Support for larger text corpora
-- File-based corpus loading
-- Vocabulary export/import
-- Performance optimization
-- Visualization of merge operations
+- Read corpus from a text file
+- Export learned vocabulary
+- Save merge rules
+- Support larger datasets
+- Improve encoding efficiency
+- Visualize merge operations
 
 ---
 
 ## Author
 
-**Devi Sree.T**
+**Devi Sree**
 
 B.Sc. Computer Science with Artificial Intelligence
 
----
-
-## License
-
-This project is provided for educational and research purposes.
